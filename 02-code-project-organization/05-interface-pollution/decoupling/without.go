@@ -1,13 +1,5 @@
 package main
 
-//type CustomerSercvice struct {
-//	store Store
-//}
-
-type customerStorer interface {
-	StoreCustomer(Customer) error
-}
-
 type CustomerService struct {
 	store customerStorer
 }
@@ -17,11 +9,11 @@ func (cs CustomerService) CreateNewCustomer(id string) error {
 	return cs.store.StoreCustomer(customer)
 }
 
-type Store struct{}
-
 type Customer struct {
 	id string
 }
+
+type Store struct{}
 
 func (s Store) StoreCustomer(customer Customer) error {
 	return nil

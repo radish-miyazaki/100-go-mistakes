@@ -1,37 +1,20 @@
 package main
 
 import (
-	"database/sql"
-	"log"
-	"os"
+	"fmt"
+
+	"github.com/radish-miyazaki/100-go-mistakes/02-code-project-organization/03-init-functions/redis"
 )
 
-var db *sql.DB
-
 func init() {
-	dsn := os.Getenv("MYSQL_DATA_SOURCE_NAME")
-	d, err := sql.Open("mysql", dsn)
-	if err != nil {
-		log.Panic(err)
-	}
-
-	err = d.Ping()
-	if err != nil {
-		log.Panic(err)
-	}
-
-	db = d
+	fmt.Println("init 1")
 }
 
-func createClient(dsn string) (*sql.DB, error) {
-	db, err := sql.Open("mysql", dsn)
-	if err != nil {
-		return nil, err
-	}
+func init() {
+	fmt.Println("init 2")
+}
 
-	if err = db.Ping(); err != nil {
-		return nil, err
-	}
-
-	return db, nil
+func main() {
+	err := redis.Store("foo", "bar")
+	_ = err
 }

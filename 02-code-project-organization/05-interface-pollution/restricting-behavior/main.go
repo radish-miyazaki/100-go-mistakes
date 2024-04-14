@@ -28,3 +28,8 @@ func (f Foo) Bar() {
 	threshold := f.threshold.Get()
 	_ = threshold
 }
+
+func main() {
+	foo := NewFoo(&IntConfig{value: 42})
+	foo.Bar()
+}
