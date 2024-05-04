@@ -12,7 +12,7 @@ type publisher interface {
 type Foo struct{}
 
 func (h Handler) getBestFoo(someInputs int) Foo {
-	foos := getFoos(sampleInputs)
+	foos := getFoos(someInputs)
 	best := foos[0]
 
 	go func() {

@@ -14,7 +14,7 @@ type publisherMock1 struct {
 func (p *publisherMock1) Publish(got []Foo) {
 	p.mu.Lock()
 	defer p.mu.Unlock()
-	p.get = got
+	p.got = got
 }
 
 func (p *publisherMock1) Get() []Foo {
@@ -64,7 +64,7 @@ func TestGetBestFoo2(t *testing.T) {
 	defer close(mock.ch)
 
 	h := Handler{
-		publisher: mock,
+		publisher: &mock,
 		n:         2,
 	}
 	foo := h.getBestFoo(42)
