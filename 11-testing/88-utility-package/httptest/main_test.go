@@ -6,6 +6,7 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestHandler(t *testing.T) {
@@ -24,5 +25,32 @@ func TestHandler(t *testing.T) {
 
 	if w.Result().StatusCode != http.StatusCreated {
 		t.FailNow()
+	}
+}
+
+func TestDurationClientGet(t *testing.T) {
+	srv := httptest.NewServer(
+		http.HandlerFunc(
+			func(w http.ResponseWriter, r *http.Request) {
+				_, _ = w.Write([]byte(`{"duration": 314}'`))
+			},
+		),
+	)
+	defer srv.Close()
+
+	client := NewDurationClient()
+	duration, err := client.GetDuration(
+		srv.URL,
+		51.551261,
+		-0.1221146,
+		51.57,
+		-0.13,
+	)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if duration != 314*time.Second {
+		t.Errorf("expected 314 seconds, got %v", duration)
 	}
 }
