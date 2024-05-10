@@ -15,3 +15,16 @@ func TestLowerCaseReader(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestFoo(t *testing.T) {
+	err := foo1(iotest.TimeoutReader(
+		strings.NewReader(randomString(1024)),
+	))
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func randomString(i int) string {
+	return string(make([]byte, i))
+}
