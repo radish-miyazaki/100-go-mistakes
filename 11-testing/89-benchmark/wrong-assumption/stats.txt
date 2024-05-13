@@ -1,0 +1,25 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/radish-miyazaki/100-go-mistakes/11-testing/89-benchmark/wrong-assumption
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.3022 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2983 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2990 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2978 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2976 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2994 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2978 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2967 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2972 ns/op
+BenchmarkAtomicStoreInt32-12    	1000000000	         0.2981 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2977 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2990 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2978 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2979 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2966 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2971 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2974 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2964 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2965 ns/op
+BenchmarkAtomicStoreInt64-12    	1000000000	         0.2959 ns/op
+PASS
+ok  	github.com/radish-miyazaki/100-go-mistakes/11-testing/89-benchmark/wrong-assumption	6.810s
